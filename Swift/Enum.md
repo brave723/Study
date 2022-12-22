@@ -12,3 +12,18 @@ MemoryLayout<Int>.size // 输出：8
 MemoryLayout<Int>.stride // 输出：8
 MemoryLayout<Int>.alignment // 输出：8
 ```
+
+### 关联值和原始值
+
+```Swift
+enum Password {
+    case number(Int, Int, Int, Int)
+    case other
+}
+
+var pwd = Password.number(1, 2, 2, 3)
+
+MemoryLayout.size(ofValue: pwd) // 输出：33
+MemoryLayout.stride(ofValue: pwd) // 输出：40
+MemoryLayout.alignment(ofValue: pwd) // 输出：8
+```
